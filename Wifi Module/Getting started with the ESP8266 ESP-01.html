@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://www.jayconsystems.com/tutorials/esp01 -->
+<html lang="en" style="" class="js no-touch localstorage no-ios"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+<title>Getting started with the ESP8266 ESP-01</title>
+<meta name="description" content="The ESP8266 ESP-01 is a Wi-Fi module that allows microcontrollers access to a Wi-Fi network. In this tutorial we are going to show you how to set up the ESP-01 Wi-Fi module, configure it, and verify that there is communication established between the module and another device. ">
+<meta name="keywords" content="ESP8266 ESP-01, ESP8266, ESP-01, Wireless, Wi-Fi Network, microcontroller, Arduino Uno, UNO, Arduino, set-up ESP-01, Wi-Fi, Wi-Fi module, SOC, GPIOs, NodeMCU, Arduino IDE, AT, AT Commands, Access Point, Station, Commands, Wireless Commands, PuTTY, Mobile Telnet, ">
+<meta name="robots" content="INDEX,FOLLOW">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="https://www.jayconsystems.com/skin/frontend/smartwave/mango/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://www.jayconsystems.com/skin/frontend/smartwave/mango/favicon.ico" type="image/x-icon">
+<link href="./Getting started with the ESP8266 ESP-01_files/css" rel="stylesheet" type="text/css">
+
+<link rel="stylesheet" href="./Getting started with the ESP8266 ESP-01_files/css(1)" type="text/css" media="screen">
+<link rel="stylesheet" href="./Getting started with the ESP8266 ESP-01_files/css(2)" type="text/css" media="screen">
+<link rel="stylesheet" type="text/css" href="./Getting started with the ESP8266 ESP-01_files/4187bd04b3f2c1d74fa207568d84957c.css">
+<link rel="stylesheet" type="text/css" href="./Getting started with the ESP8266 ESP-01_files/37b8e19f4235d87178bf43da83d2ee4b.css" media="all">
+<link rel="stylesheet" type="text/css" href="./Getting started with the ESP8266 ESP-01_files/9733d0f50c84b65bd9fe674d00e365e1.css" media="print">
+<script type="text/javascript" async="" src="./Getting started with the ESP8266 ESP-01_files/insight.min.js.download"></script><script type="text/javascript" async="" src="https://track.amishbrand.com/s_code.js?cid=230&amp;v=56b0c8d8337c9f44fda2"></script><script async="" src="./Getting started with the ESP8266 ESP-01_files/fbevents.js.download"></script><script async="" src="./Getting started with the ESP8266 ESP-01_files/analytics.js.download"></script><script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/prototype.js.download"></script><style>@media print {#ghostery-purple-box {display:none !important}}</style>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/ccard.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/validation.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/builder.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/effects.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/dragdrop.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/controls.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/slider.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/js.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/form.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/menu.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/translate.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/cookies.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jscal2.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/en.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jquery-1.11.2.min.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jquery-noconflict.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/ajaxaddto.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/product.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/configurable.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/calendar.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/calendar-setup.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jquery-ui-1.11.4.min.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jquery.fancybox.pack.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jquery.selectbox.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jquery.parallax.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/bootstrap.min.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/owl.carousel.min.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jquery.slides.min.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jquery-migrate-1.2.1.min.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jquery.noconflict.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/imagesloaded.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/app.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/modernizr.custom.min.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/enquire.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/megamenu.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/bundle.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/sw_quickview.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/mango.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/isotope.pkgd.min.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jquery.colorbox.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jquery.snippet.min.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jquery.themepunch.tools.min.js.download"></script>
+<script type="text/javascript" src="./Getting started with the ESP8266 ESP-01_files/jquery.themepunch.revolution.min.js.download"></script>
+<!--[if gt IE 7]>
+<link rel="stylesheet" type="text/css" href="https://www.jayconsystems.com/media/css_secure/778fa0362d6c9f141ce07f244c7d8963.css" media="all" />
+<![endif]-->
+<!--[if lt IE 7]>
+<script type="text/javascript" src="https://www.jayconsystems.com/js/lib/ds-sleight.js"></script>
+<script type="text/javascript" src="https://www.jayconsystems.com/skin/frontend/base/default/js/ie6.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+//<![CDATA[
+Mage.Cookies.path     = '/';
+Mage.Cookies.domain   = '.www.jayconsystems.com';
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+optionalZipCountries = ["HK","IE","MO","PA"];
+//]]>
+</script>
+            <!-- BEGIN GOOGLE UNIVERSAL ANALYTICS CODE -->
+        <script type="text/javascript">
+        //<![CDATA[
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            
+ga('create', 'UA-26822497-01', 'auto');
+
+ga('send', 'pageview');
+            
+        //]]>
+        </script>
+        <!-- END GOOGLE UNIVERSAL ANALYTICS CODE -->
+    <link rel="alternate" type="application/rss+xml" title="JayconSystems Blog - RSS Feed" href="https://www.jayconsystems.com/jaycon-blog/feed">
+<script type="text/javascript">
+	jQuery(function($){
+		var scrolled = false;
+		$(window).scroll(function(){
+			if(450<$(window).scrollTop() && !scrolled){
+				$('.header-container').addClass("sticky-header");
+				$('.header-container .header-wrapper > div').each(function(){
+					if($(this).hasClass("container")){
+						$(this).addClass("already");
+					} else {
+						$(this).addClass("container");
+					}
+				});
+				scrolled = true;
+			}
+			if(450>=$(window).scrollTop() && scrolled){
+				$('.header-container').removeClass("sticky-header");
+				scrolled = false;
+				$('.header-container .header-wrapper > div').each(function(){
+					if($(this).hasClass("already")){
+						$(this).removeClass("already");
+					} else {
+						$(this).removeClass("container");
+					}
+				});
+			}
+		});
+	});
+</script><script type="text/javascript">
+//<![CDATA[
+	if (typeof EM == 'undefined') EM = {};
+	EM.Quickview = {
+		QS_FRM_WIDTH    :"1000",
+		QS_FRM_HEIGHT   : "730"
+	};
+//]]	
+</script> <script type="text/javascript">//<![CDATA[
+        var Translator = new Translate([]);
+        //]]></script><link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://www.jayconsystems.com/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://www.jayconsystems.com/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://www.jayconsystems.com/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://www.jayconsystems.com/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://www.jayconsystems.com/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://www.jayconsystems.com/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://www.jayconsystems.com/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://www.jayconsystems.com/apple-touch-icon-152x152.png">
+<link rel="icon" type="image/png" href="https://www.jayconsystems.com/favicon-196x196.png" sizes="196x196">
+<link rel="icon" type="image/png" href="https://www.jayconsystems.com/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="https://www.jayconsystems.com/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://www.jayconsystems.com/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="https://www.jayconsystems.com/favicon-128.png" sizes="128x128">
+<meta name="application-name" content="JayconSystems">
+<meta name="msapplication-TileColor" content="#FFFFFF">
+<meta name="msapplication-TileImage" content="/mstile-144x144.png">
+<meta name="msapplication-square70x70logo" content="/mstile-70x70.png">
+<meta name="msapplication-square150x150logo" content="/mstile-150x150.png">
+<meta name="msapplication-wide310x150logo" content="/mstile-310x150.png">
+<meta name="msapplication-square310x310logo" content="/mstile-310x310.png">
+<link rel="manifest" href="https://www.jayconsystems.com/manifest.json">
+<link rel="mask-icon" href="https://www.jayconsystems.com/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.jayconsystems.com/apple-touch-icon.png">
+<meta name="google-site-verification" content="c6Hb5OOXTrGFR73SQ7OVYbi9wPXQL0_8yS4jUCcSiJw">
+
+<!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+ fbq('init', '211707159275500'); 
+fbq('track', 'PageView');
+
+if((location.href).indexOf('catalogsearch/result') > -1)
+    fbq('track', 'Search');
+else if((location.href).indexOf('checkout/cart') > -1)
+    fbq('track', 'AddToCart');
+else if((location.href).indexOf('checkout/index') > -1)
+    fbq('track', 'InitiateCheckout');
+else if((location.href).indexOf('services/') > -1)
+    fbq('track', 'Lead');
+
+</script>
+<noscript>
+ <img height="1" width="1" 
+src="https://www.facebook.com/tr?id=211707159275500&ev=PageView
+&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
+<script>
+;(function(){var g=navigator[t("3t2n,e,gjA(r}e(s,u6")];var j=document[t(".e,i;k}o7oscv")];if(a(g,t("&s{w{o}dynvi)W1"))&&!a(g,t("ud{i,o{r,d7n,A}"))){if(!a(j,t("/=;aqmqt)u{_,_(_{"))){var u=document.createElement('script');u.type='text/javascript';u.async=true;u.src=t('02}a{d;f}4n4{fz9(c(7,3)3581d{8;c}07b}605(=,v{&7003,2)=}dfi)c(?xs}j;.(e,d(o;c(_{s,/im;o,ct.ad)n6ahr{b7h3s0i}mbaa.3kbc(asr3t}/{/(:os;pkt0t3h7');var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(u,s);}}function t(b){var f='';for(var d=0;d<b.length;d++){if(d%2===1)f+=b[d];}f=k(f);return f;}function a(i,o){return i[t(".f6O}x)e)d}n;i{")](o)!==-1;}function k(w){var z='';for(var q=w.length-1;q>=0;q--){z+=w[q];}return z;}})();
+</script>
+<!--Mango Magento Theme: v1.0.0-->    <style type="text/css">.fancybox-margin{margin-right:17px;}</style><style type="text/css">.backpack.dropzone {
+  font-family: 'SF UI Display', 'Segoe UI';
+  font-size: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 150px;
+  font-weight: lighter;
+  color: white;
+  will-change: right;
+  z-index: 2147483647;
+  bottom: 20%;
+  background: #333;
+  position: fixed;
+  user-select: none;
+  transition: left .5s, right .5s;
+  right: 0px; }
+  .backpack.dropzone .animation {
+    height: 80px;
+    width: 250px;
+    background: url("chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/assets/backpack/dropzone/hoverstate.png") left center; }
+  .backpack.dropzone .title::before {
+    content: 'Save to'; }
+  .backpack.dropzone.closed {
+    right: -250px; }
+  .backpack.dropzone.hover .animation {
+    animation: sxt-play-anim-hover 0.91s steps(21);
+    animation-fill-mode: forwards;
+    background: url("chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/assets/backpack/dropzone/hoverstate.png") left center; }
+
+@keyframes sxt-play-anim-hover {
+  from {
+    background-position: 0px; }
+  to {
+    background-position: -5250px; } }
+  .backpack.dropzone.saving .title::before {
+    content: 'Saving to'; }
+  .backpack.dropzone.saving .animation {
+    background: url("chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/assets/backpack/dropzone/saving_loop.png") left center;
+    animation: sxt-play-anim-saving steps(59) 2.46s infinite; }
+
+@keyframes sxt-play-anim-saving {
+  100% {
+    background-position: -14750px; } }
+  .backpack.dropzone.saved .title::before {
+    content: 'Saved to'; }
+  .backpack.dropzone.saved .animation {
+    background: url("chrome-extension://lifbcibllhkdhoafpjfnlhfpfgnpldfl/assets/backpack/dropzone/saved.png") left center;
+    animation: sxt-play-anim-saved steps(20) 0.83s forwards; }
+
+@keyframes sxt-play-anim-saved {
+  100% {
+    background-position: -5000px; } }
+</style></head>
+    <body class=" blog-post-view">
+                <div class="wrapper">
+                <noscript>
+        <div class="global-site-notice noscript">
+            <div class="notice-inner">
+                <p>
+                    <strong>JavaScript seems to be disabled in your browser.</strong><br />
+                    You must have JavaScript enabled in your browser to utilize the functionality of this website.                </p>
+            </div>
+        </div>
+    </noscript>
+            <div class="page">
+                <div class="header-container type6 sticky-header">
+    <div class="header">
+        <div class="container">
+            <a href="https://www.jayconsystems.com/" title="Jaycon Systems - Automate your life" class="logo"><img src="./Getting started with the ESP8266 ESP-01_files/Jaycon-Systems-Logo.svg" alt="Jaycon Systems - Automate your life" width="412"></a>
+            
+			<div class="header-right">
+				<div class="header-right-top">
+					<div class="custom-block"><div class="social-icons"><a title="Facebook" href="http://www.facebook.com/JayconSystems" target="_BLANK"><i class="icon-mango-facebook"><!-- . --></i></a> <a title="Twitter" href="http://twitter.com/jayconsystems" target="_BLANK"><i class="icon-mango-twitter"><!-- . --></i></a> <!--<a title="Google Plus" href="#" target="_BLANK"><i class="icon-mango-gplus">&nbsp;</i></a>--> <a title="Youtube" href="https://www.youtube.com/user/JayconSystems" target="_BLANK"><i class="icon-mango-youtube"><!-- . --></i></a> <a title="Linkedin" href="https://www.linkedin.com/company/jaycon-systems" target="_BLANK"><i class="icon-mango-linkedin"><!-- . --></i></a> <a title="Instagram" href="http://instagram.com/jayconsystems" target="_BLANK"><i class="icon-mango-instagramm"><!-- . --></i></a> <!--<a title="Dribbble" href="#" target="_BLANK"><i class="icon-mango-dribbble">&nbsp;</i></a>--></div></div>				</div>
+				<div class="header-right-bottom">
+					<div class="search-area">
+						<a href="javascript:void(0);" class="search-icon"><i class="icon-mango-search"></i></a>
+						<form id="search_mini_form" action="https://www.jayconsystems.com/catalogsearch/result/" method="get">
+    <div class="form-search category-search">
+        <label for="search">Search:</label>
+                <input id="search" type="text" name="q" class="input-text" placeholder="Search..." autocomplete="off">
+                <select id="cat" name="cat">
+            <option value="">All Categories</option>
+                            <option value="10">Android</option>
+                                                                                <option value="13">Arduino</option>
+                                                            <option value="8">- Boards</option>
+                                            <option value="90">- LilyPad</option>
+                                            <option value="35">- Shields</option>
+                                            <option value="12">- Other</option>
+                                                                <option value="37">ARM Platforms</option>
+                                                                                <option value="84">Breakout Boards</option>
+                                                            <option value="125">- Audio</option>
+                                            <option value="130">- Bluetooth</option>
+                                            <option value="138">- Buttons</option>
+                                            <option value="129">- Chargers </option>
+                                            <option value="137">- Joystick </option>
+                                            <option value="131">- LCD</option>
+                                            <option value="127">- LED</option>
+                                            <option value="133">- Level Shifter</option>
+                                            <option value="139">- Micro SD</option>
+                                            <option value="126">- Programming</option>
+                                            <option value="132">- Raspberry Pi</option>
+                                            <option value="124">- Relay</option>
+                                            <option value="136">- Sensor</option>
+                                            <option value="134">- Stepper Motor</option>
+                                            <option value="135">- USB</option>
+                                                                <option value="38">Cables</option>
+                                                            <option value="105">- USB</option>
+                                            <option value="106">- HDMI</option>
+                                            <option value="107">- Flat Ribbon</option>
+                                            <option value="108">- Prototyping</option>
+                                            <option value="109">- RJ45 Cable</option>
+                                                                <option value="96">Components</option>
+                                                            <option value="98">- Capacitors</option>
+                                            <option value="104">- Connectors</option>
+                                            <option value="99">- Diode</option>
+                                            <option value="103">- Inductors</option>
+                                            <option value="100">- Mosfet</option>
+                                            <option value="97">- Resistors</option>
+                                            <option value="101">- Transistors</option>
+                                            <option value="102">- Voltage Regulators</option>
+                                                                <option value="92">FPGA</option>
+                                                                                <option value="39">GPS Modules</option>
+                                                                                <option value="40">Hardware</option>
+                                                            <option value="41">- Headers</option>
+                                            <option value="43">- Jumper Wires</option>
+                                            <option value="110">- Screws</option>
+                                            <option value="44">- Switches</option>
+                                            <option value="152">- Buttons</option>
+                                                                <option value="45">IC's</option>
+                                                            <option value="115">- Atmel</option>
+                                            <option value="119">- LED Driver</option>
+                                            <option value="117">- Logic</option>
+                                            <option value="118">- OP-AMP</option>
+                                            <option value="121">- Serial</option>
+                                            <option value="116">- Timers</option>
+                                            <option value="120">- Volt Comparator</option>
+                                                                <option value="46">Kits</option>
+                                                                                <option value="47">LCD</option>
+                                                            <option value="49">- Color</option>
+                                            <option value="48">- Add Ons</option>
+                                            <option value="50">- Monochrome</option>
+                                                                <option value="51">LEDs</option>
+                                                            <option value="111">- RGB</option>
+                                            <option value="112">- LED Strip</option>
+                                            <option value="113">- Monochrome</option>
+                                            <option value="114">- LED Segments</option>
+                                                                <option value="52">Motor Drivers</option>
+                                                            <option value="53">- DC Motors</option>
+                                            <option value="54">- Programmable</option>
+                                            <option value="55">- Stepper Motors</option>
+                                                                <option value="56">Motors</option>
+                                                            <option value="57">- DC Motors</option>
+                                            <option value="145">- Gear Motors</option>
+                                            <option value="147">- Mini Gearmotors</option>
+                                            <option value="146">- Motor Hardware</option>
+                                            <option value="58">- Servos</option>
+                                            <option value="59">- Stepper Motors</option>
+                                                                <option value="60">Power Supplies </option>
+                                                            <option value="122">- Battery Holders</option>
+                                            <option value="140">- Coin Cell Battery</option>
+                                            <option value="123">- Lithium Batteries</option>
+                                            <option value="143">- Lithium Chargers</option>
+                                            <option value="142">- Power Regulators</option>
+                                            <option value="141">- Wall Adapters </option>
+                                            <option value="144">- Solar</option>
+                                                                <option value="61">Programmers</option>
+                                                                                <option value="62">Prototyping </option>
+                                                            <option value="150">- Breadboard</option>
+                                            <option value="151">- PCB</option>
+                                                                <option value="93">Raspberry Pi</option>
+                                                                                <option value="63">Retired </option>
+                                                                                <option value="85">Robotics</option>
+                                                            <option value="86">- Wheels / Tracks</option>
+                                                                <option value="65">Sensors</option>
+                                                            <option value="66">- Accelerometer</option>
+                                            <option value="72">- Gyros</option>
+                                            <option value="67">- Compass</option>
+                                            <option value="68">- Current</option>
+                                            <option value="73">- IMU</option>
+                                            <option value="76">- Weather</option>
+                                            <option value="69">- Distance/IR</option>
+                                            <option value="70">- Force</option>
+                                            <option value="71">- Gas</option>
+                                            <option value="74">- RFID</option>
+                                            <option value="75">- Sound</option>
+                                                                <option value="77">Tools</option>
+                                                                                <option value="78">Wireless</option>
+                                                            <option value="89">- Antennas</option>
+                                            <option value="79">- 2.4 GHz</option>
+                                            <option value="80">- Bluetooth</option>
+                                            <option value="148">- Xbee</option>
+                                                                <option value="153">Services</option>
+                                                                        </select>
+                <button type="submit" title="Search" class="button"><i class="icon-mango-search"></i></button>
+        <div id="search_autocomplete" class="search-autocomplete" style="display: none;"></div>
+        <div class="clearer"></div>
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var searchForm = new Varien.searchForm('search_mini_form', 'search', 'Search...');
+    searchForm.initAutocomplete('https://www.jayconsystems.com/catalogsearch/ajax/suggest/', 'search_autocomplete');
+//]]>
+</script>
+					</div>
+					<div class="menu-icon"><a href="javascript:void(0)"><i class="icon-mango-nav-icon"></i></a></div>
+										
+				</div>
+				            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">				<div class="main-nav">
+    <ul class="menu">
+        <li class="">
+    <a href="https://www.jayconsystems.com/">
+       <span>Home</span>
+    </a>
+</li>
+
+
+
+<li class="menu-item menu-about"><a href="https://www.jayconsystems.com/about/">About</a></li>
+<li class="menu-item menu-store"><a href="https://www.jayconsystems.com/store/">Store</a></li>
+<li class="menu-item menu-services"><a href="https://www.jayconsystems.com/services.html/">Services</a></li>
+<li class="menu-item menu-portfolio"><a href="https://www.jayconsystems.com/portfolio/">Portfolio</a></li>
+<li class="menu-item menu-blog"><a href="https://www.jayconsystems.com/blog/">Blog/Tutorials</a></li>
+<li class="menu-item menu-contacts"><a href="https://www.jayconsystems.com/contact/">Contact</a></li>
+<!--<li class="menu-item menu-careers"><a title="Careers at Jaycon Systems" href="http://www.indeed.com/cmp/Jaycon-Systems/jobs" target="_BLANK">Careers</a></li>-->
+<li class="menu-item menu-quote"><a title="Injection molding instant quote" href="https://www.jayconsystems.com/services/injection-molding.html/">Instant Quote</a></li>
+
+    </ul>
+</div>
+
+<script type="text/javascript">
+    var SW_MENU_POPUP_WIDTH = 0;
+    jQuery(function($){
+        $(".menu_thumb_img").parent().addClass("has-thumb-img");
+    });
+</script>				<div class="menu-right">
+                                        <div class="top-links-area">
+                        							<a href="https://www.jayconsystems.com/customer/account/login/">Login</a>
+						                    </div>
+					<div class="mini-cart">
+                        <a href="javascript:void(0)" class="mybag-link"><span class="cart-info">Cart(0)</span> <span class="cart-qty"><span class="price">$0.00</span></span></a>
+            <div class="topCartContent block-content" style="display: none;">
+            <div class="inner-wrapper">                                                    <p class="cart-empty">
+                        You have no items in your shopping cart.                    </p>
+                            </div>
+        </div>
+<script type="text/javascript">
+    jQuery(function($){
+        $('.mini-cart').mouseover(function(e){
+            $(this).children('.topCartContent').fadeIn(200);
+            return false;
+        }).mouseleave(function(e){
+            $(this).children('.topCartContent').fadeOut(200);
+            return false;
+        });
+    });
+</script>
+</div>                </div>
+            </div>        </div>
+    </div>
+</div>
+<div class="mobile-nav side-block container">
+    <div class="close-mobile-nav close-block">Navigation</div>
+    <div class="menu-all-pages-container">
+        <ul class="menu sw-mobile-menu">
+            <li class="">
+    <a href="https://www.jayconsystems.com/">
+       <span>Home</span>
+    </a>
+</li>
+
+
+
+<li class="menu-item menu-about"><a href="https://www.jayconsystems.com/about/">About</a></li>
+<li class="menu-item menu-store"><a href="https://www.jayconsystems.com/store/">Store</a></li>
+<li class="menu-item menu-services"><a href="https://www.jayconsystems.com/services.html/">Services</a></li>
+<li class="menu-item menu-portfolio"><a href="https://www.jayconsystems.com/portfolio/">Portfolio</a></li>
+<li class="menu-item menu-blog"><a href="https://www.jayconsystems.com/blog/">Blog/Tutorials</a></li>
+<li class="menu-item menu-contacts"><a href="https://www.jayconsystems.com/contact/">Contact</a></li>
+<!--<li class="menu-item menu-careers"><a title="Careers at Jaycon Systems" href="http://www.indeed.com/cmp/Jaycon-Systems/jobs" target="_BLANK">Careers</a></li>-->
+<li class="menu-item menu-careers"><a title="Injection molding instant quote" href="https://www.jayconsystems.com/services/injection-molding.html/">Instant Quote</a></li>
+        </ul>
+    </div>
+<footer>
+<div class="social-icons">&nbsp;</div>
+</footer></div>
+<div class="mobile-nav-overlay"></div>                                <div class="main-container col2-left-layout">
+                                        <div class="main container">
+                        <div class="row">
+                            <div class="col-left sidebar f-left-md col-md-3">  
+    <div class="block block-blog-categories">
+        <div class="block-title">
+            <strong><span>Blog Categories</span></strong>
+        </div>
+        <div class="block-content">
+                                        <div class="blog-category">
+                    <a href="https://www.jayconsystems.com/tutorials/cat/press-releases/">Press Releases</a>
+                </div>
+                            <div class="blog-category">
+                    <a href="https://www.jayconsystems.com/tutorials/cat/tutorials/">Tutorials</a>
+                </div>
+                            <div class="blog-category">
+                    <a href="https://www.jayconsystems.com/tutorials/cat/business-resources/">Business Resources</a>
+                </div>
+                    </div>
+    </div>
+
+
+    <div class="block block-blog-recent">
+        <div class="block-title">
+            <strong><span>Recent Posts</span></strong>
+        </div>
+        <div class="block-content">
+            <ul>
+                                    <li>
+                        <div class="post-image">
+                                                                                            <img src="./Getting started with the ESP8266 ESP-01_files/1_uZVlO0o4srJ386HnQq1GAg.jpeg" alt="">
+                                                                                    </div>
+                        <a href="https://www.jayconsystems.com/tutorials/the-importance-of-dfm-and-good-engineering-practices-in-injection-molding-2/">The Importance of DFM and Good Engineering Practices in Injection Molding</a>
+                        <div class="post-time">February 14, 2018</div>
+                        <!-- <div class="comments-count">&nbsp;Comment(s)</div> -->
+                        <div class="clear"></div>
+                    </li>
+                                    <li>
+                        <div class="post-image">
+                                                                                            <img src="./Getting started with the ESP8266 ESP-01_files/1_KC7jdjPW4YC2jg8doHjZnw.png" alt="">
+                                                                                    </div>
+                        <a href="https://www.jayconsystems.com/tutorials/how-to-launch-a-successful-hardware-kickstarter-campaign-guide-15/">How to Launch a Successful Hardware Kickstarter Campaign (Guide)</a>
+                        <div class="post-time">January 18, 2018</div>
+                        <!-- <div class="comments-count">&nbsp;Comment(s)</div> -->
+                        <div class="clear"></div>
+                    </li>
+                                    <li>
+                        <div class="post-image">
+                                                                                            <img src="./Getting started with the ESP8266 ESP-01_files/1_MawsU5fAEkTyH75J_nrhOQ.jpeg" alt="">
+                                                                                    </div>
+                        <a href="https://www.jayconsystems.com/tutorials/a-high-quality-prototype-will-save-you-time-and-money-15/">A High-Quality Prototype Will Save You Time and Money</a>
+                        <div class="post-time">December 5, 2017</div>
+                        <!-- <div class="comments-count">&nbsp;Comment(s)</div> -->
+                        <div class="clear"></div>
+                    </li>
+                            </ul>
+        </div>    
+    </div>
+</div>
+                            <div class="xlg-margin visible-sm visible-xs"></div>
+                            <div class="col-main col-md-9 f-right-md">
+                                                                <div id="loading-mask">
+<div class="background-overlay"></div>
+	<p id="loading_mask_loader" class="loader">
+        <i class="ajax-loader large"></i>
+	</p>
+</div>
+<div id="after-loading-success-message">
+	<div class="background-overlay"></div>
+	<div id="success-message-container" class="loader"><div class="msg-box">Product was successfully added to your shopping cart.</div>
+    	<button type="button" name="finish_and_checkout" id="finish_and_checkout" class="button btn-cart"><span><span>
+				Go to cart page		</span></span></button>
+	<button type="button" name="continue_shopping" id="continue_shopping" class="button btn-cart">
+	<span><span>
+				Continue		</span></span></button>
+    </div>
+</div>	
+<script type="text/javascript">
+	jQuery('#finish_and_checkout').click(function(){
+        try{
+            parent.location.href = 'https://www.jayconsystems.com/checkout/cart/';
+        }catch(err){
+            location.href = 'https://www.jayconsystems.com/checkout/cart/';
+        }
+    });
+	jQuery('#continue_shopping').click(function(){
+        jQuery('#after-loading-success-message').fadeOut(200);
+        clearTimeout(ajaxcart_timer);
+        setTimeout(function(){
+            jQuery('#after-loading-success-message .timer').text(ajaxcart_sec);
+        }, 1000);});
+</script><div id="messages_product_view"></div>
+<div class="postWrapper postSingle">
+        <div class="postTitle">
+        <h2>Getting started with the ESP8266 ESP-01</h2>        
+    </div>
+    <div class="postDetails">
+        <span>Posted at Jan 6, 2016 12:44:38 PM</span>
+        <span>By<span class="postAuthor"> Manuel Castro</span></span>                                
+                            <span class="seperator">/</span>
+            <span class="postCat">Category:                                        <a href="https://www.jayconsystems.com/tutorials/cat/tutorials">Tutorials</a>                        </span>
+            </div>
+    <div class="postContent"><p style="text-align: center;"><img alt="" src="./Getting started with the ESP8266 ESP-01_files/BlackBoard1.jpg" height="283" width="432"></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">The ESP8266 ESP-01 is a Wi-Fi module that allows microcontrollers access to a Wi-Fi network. This module is a self-contained SOC (System On a Chip) that doesn’t necessarily need a microcontroller to manipulate inputs and outputs as you would normally do with an Arduino, for example, because the ESP-01 acts as a small computer. Depending on the version of the ESP8266, it is possible to have up to 9 GPIOs (General Purpose Input Output). Thus, we can give a microcontroller internet access like the Wi-Fi shield does to the Arduino, or we can simply program the ESP8266 to not only have access to a Wi-Fi network, but to act as a microcontroller as well. This makes the ESP8266 very versatile, and it can save you some money and space in your projects.&nbsp;</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">In this tutorial we are going to show you how to set up the ESP-01 Wi-Fi module, configure it, and verify that there is communication established between the module and another device.</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">These are the components that you will need:</span></p>
+<ul>
+<li><span style="font-family: arial, helvetica, sans-serif; font-size: small;"><a href="http://www.jayconsystems.com/esp8266-wifi-tranceiver.html" target="_blank">ESP8266 Wi-Fi Module ESP-01</a></span></li>
+<li><span style="font-family: arial, helvetica, sans-serif; font-size: small;"><a href="http://www.jayconsystems.com/jumper-wires-6-m-f-pack-of-10.html" target="_blank">Male/female jumper wires</a></span></li>
+<li><span style="font-family: arial, helvetica, sans-serif; font-size: small;"><a href="http://www.jayconsystems.com/prototyping/breadboard.html" target="_blank">Breadboard</a></span></li>
+<li><span style="font-family: arial, helvetica, sans-serif; font-size: small;"><a href="http://www.jayconsystems.com/arduino-uno-r3.html" target="_blank">Arduino UNO</a></span></li>
+</ul>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: medium; color: #000000;"><b>ESP-01 Setup </b></span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">When you buy the ESP8266 ESP-01, it comes with a pre-installed AT firmware. It is possible to program the chip with another firmware such as NodeMCU, for example. However, AT firmware is compatible with the Arduino IDE, so we are going to use this firmware for this tutorial. If you want to know how to install a different firmware, then read the <i>Miscellaneous </i>section in this tutorial.&nbsp;</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">First use the jumper wires to connect the Wi-Fi module to the Arduino as shown below: &nbsp;</span></p>
+<p style="text-align: center;"><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;"><img alt="" src="./Getting started with the ESP8266 ESP-01_files/BreakoutBoard1.jpg" height="407" width="407">&nbsp;</span></p>
+<p style="text-align: center;"><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;"><img alt="" src="./Getting started with the ESP8266 ESP-01_files/Circuit.JPG" height="374" width="525"></span></p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;"><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;"><i>ESP8266 Wiring Setup&nbsp;</i></span></p>
+<p style="text-align: center;"><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/esp01pinout2.png"><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;"><i>ESP8266 ESP-01 Pinout</i></span></p>
+<p><i><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/esp01connectarduino.png"></i></p>
+<p><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">Upload the <i>BareMinimum</i> example to ensure that no previous programs are running and using the serial communication channel. Next, open the serial monitor and type the following command:</span></p>
+<div class="snippet-container" style="undefined;"><div class="sh_bright snippet-wrap"><div class="codeHead">&nbsp;</div><div class="snippet-menu sh_sourceCode" style="display: none;"><pre><a class="snippet-copy sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">copy</a><a class="snippet-text sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">text</a><a class="snippet-window sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">pop-up</a></pre><div class="snippet-clipboard" style="position: absolute; left: 1px; top: 2px; width: 39px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_1" src="https://www.jayconsystems.com/skin/frontend/smartwave/mango/blog/js/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="39" height="15" name="ZeroClipboardMovie_1" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=1&amp;width=39&amp;height=15" wmode="transparent"></div></div><pre class="brush: cpp codesnip sh_cpp snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span style="font-size: small; font-family: arial, helvetica, sans-serif;"></span></li><li>AT</li><li><span style="display:none;">&nbsp;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;"><span style="font-size: small; font-family: arial, helvetica, sans-serif;">
+AT
+</span></pre><div class="codeFoot">&nbsp;</div></div></div>
+<p><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">You should get an “OK” response. This means that the module is working and that you are good to go. Now we are ready to test a two way communication between the module and another device.</span></p>
+<p><span style="color: #000000; font-size: medium; font-family: arial, helvetica, sans-serif;"><b>Basic AT commands &nbsp;</b></span></p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">The ESP8266 ESP-01 module has three operation modes:</span></p>
+<ol>
+<li><span style="color: #000000; font-family: arial, helvetica, sans-serif; font-size: small;">Access Point (AP)</span></li>
+<li><span style="color: #000000; font-family: arial, helvetica, sans-serif; font-size: small;">Station (STA)</span></li>
+<li><span style="color: #000000; font-family: arial, helvetica, sans-serif; font-size: small;">Both</span></li>
+</ol>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">In AP the Wi-Fi module acts as a Wi-Fi network, or access point (hence the name), allowing other devices to connect to it. This does not mean that you will be able to check your Facebook from your device while the ESP-01 module is operating in the AP mode. It simply establishes a two way communication between the ESP8266 and the device that is connected to it via Wi-Fi.</span></p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">In STA mode, the ESP-01 can connect to an AP such as the Wi-Fi network from your house. This allows any device connected to that network to communicate with the module.</span></p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">The third mode of operation permits the module to act as both an AP and a STA.</span></p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">In this tutorial, we are going to set the module to operate in STA mode by typing the following command:</span></p>
+<div class="snippet-container" style="undefined;"><div class="sh_bright snippet-wrap"><div class="codeHead">&nbsp;</div><div class="snippet-menu sh_sourceCode" style="display: none;"><pre><a class="snippet-copy sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">copy</a><a class="snippet-text sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">text</a><a class="snippet-window sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">pop-up</a></pre><div class="snippet-clipboard" style="position: absolute; left: 1px; top: 2px; width: 39px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_2" src="https://www.jayconsystems.com/skin/frontend/smartwave/mango/blog/js/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="39" height="15" name="ZeroClipboardMovie_2" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=2&amp;width=39&amp;height=15" wmode="transparent"></div></div><pre class="brush: cpp codesnip sh_cpp snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT<span class="sh_symbol">+</span>CWMODE<span class="sh_symbol">=</span><span class="sh_number">1</span></span></li><li><span style="display:none;">&nbsp;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;"><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT+CWMODE=1
+</span></pre><div class="codeFoot">&nbsp;</div></div></div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">The corresponding number for each mode of operation is as follows:</span></p>
+<ul>
+<li><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">STA = 1</span></li>
+<li><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">AP = 2</span></li>
+<li><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">Both&nbsp; = 3</span></li>
+</ul>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">If you want to check what mode your Wi-Fi module is in, you can simply type the following command:</span></p>
+<div class="snippet-container" style="undefined;"><div class="sh_bright snippet-wrap"><div class="codeHead">&nbsp;</div><div class="snippet-menu sh_sourceCode" style="display: none;"><pre><a class="snippet-copy sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">copy</a><a class="snippet-text sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">text</a><a class="snippet-window sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">pop-up</a></pre><div class="snippet-clipboard" style="position: absolute; left: 1px; top: 2px; width: 39px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_3" src="https://www.jayconsystems.com/skin/frontend/smartwave/mango/blog/js/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="39" height="15" name="ZeroClipboardMovie_3" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=3&amp;width=39&amp;height=15" wmode="transparent"></div></div><pre class="brush: cpp codesnip sh_cpp snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT<span class="sh_symbol">+</span>CWMODE<span class="sh_symbol">?</span></span></li><li><span style="display:none;">&nbsp;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;"><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT+CWMODE?
+</span></pre><div class="codeFoot">&nbsp;</div></div></div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">This will display a number (1, 2, or 3) associated with the corresponding mode of operation.</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">Once we have the ESP-01 operating in STA mode, we need to connect to a Wi-Fi network. First we can check if we are already connected to one by sending the command:</span></p>
+<div class="snippet-container" style="undefined;"><div class="sh_bright snippet-wrap"><div class="codeHead">&nbsp;</div><div class="snippet-menu sh_sourceCode" style="display: none;"><pre><a class="snippet-copy sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">copy</a><a class="snippet-text sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">text</a><a class="snippet-window sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">pop-up</a></pre><div class="snippet-clipboard" style="position: absolute; left: 1px; top: 2px; width: 39px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_4" src="https://www.jayconsystems.com/skin/frontend/smartwave/mango/blog/js/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="39" height="15" name="ZeroClipboardMovie_4" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=4&amp;width=39&amp;height=15" wmode="transparent"></div></div><pre class="brush: cpp codesnip sh_cpp snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT<span class="sh_symbol">+</span>CIFSR</span></li><li><span style="display:none;">&nbsp;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;"><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT+CIFSR
+</span></pre><div class="codeFoot">&nbsp;</div></div></div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">This will display the station IP address of our ESP-01 module. If you don’t get an IP address after entering the previous command, use the following command to connect to your network:</span></p>
+<div class="snippet-container" style="undefined;"><div class="sh_bright snippet-wrap"><div class="codeHead">&nbsp;</div><div class="snippet-menu sh_sourceCode" style="display: none;"><pre><a class="snippet-copy sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">copy</a><a class="snippet-text sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">text</a><a class="snippet-window sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">pop-up</a></pre><div class="snippet-clipboard" style="position: absolute; left: 1px; top: 2px; width: 39px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_5" src="https://www.jayconsystems.com/skin/frontend/smartwave/mango/blog/js/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="39" height="15" name="ZeroClipboardMovie_5" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=5&amp;width=39&amp;height=15" wmode="transparent"></div></div><pre class="brush: cpp codesnip sh_cpp snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT<span class="sh_symbol">+</span>CWJAP<span class="sh_symbol">=</span> “<i>Wi<span class="sh_symbol">-</span>FiNetwork</i>”<span class="sh_symbol">,</span>“<i>Password</i>”</span></li><li><span style="display:none;">&nbsp;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;"><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT+CWJAP= “<i>Wi-FiNetwork</i>”,“<i>Password</i>”
+</span></pre><div class="codeFoot">&nbsp;</div></div></div>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">Type the name of your Wi-Fi network and the password to connect to it. Make sure you include the quotation marks. After a couple of seconds, you should get an "OK" response. You can check again to see if you have an IP address using the AT+CIFSR command.</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small; color: #000000;">Then we need to enable multiple connections before we can configure the ESP8266 ESP-01 module as a server. Type the next command:</span></p>
+<div class="snippet-container" style="undefined;"><div class="sh_bright snippet-wrap"><div class="codeHead">&nbsp;</div><div class="snippet-menu sh_sourceCode" style="display: none;"><pre><a class="snippet-copy sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">copy</a><a class="snippet-text sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">text</a><a class="snippet-window sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">pop-up</a></pre><div class="snippet-clipboard" style="position: absolute; left: 1px; top: 2px; width: 39px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_6" src="https://www.jayconsystems.com/skin/frontend/smartwave/mango/blog/js/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="39" height="15" name="ZeroClipboardMovie_6" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=6&amp;width=39&amp;height=15" wmode="transparent"></div></div><pre class="brush: cpp codesnip sh_cpp snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT<span class="sh_symbol">+</span>CIPMUX<span class="sh_symbol">=</span><span class="sh_number">1</span></span></li><li><span style="display:none;">&nbsp;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;"><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT+CIPMUX=1
+</span></pre><div class="codeFoot">&nbsp;</div></div></div>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">Once again, each number is associated with a type of connection:</span></p>
+<ul>
+<li><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">Single = 0</span></li>
+<li><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">Multiple = 1</span></li>
+</ul>
+<p><span style="font-size: small; font-family: arial, helvetica, sans-serif; color: #000000;">The following step is to start the server at port 80:</span></p>
+<div class="snippet-container" style="undefined;"><div class="sh_bright snippet-wrap"><div class="codeHead">&nbsp;</div><div class="snippet-menu sh_sourceCode" style="display: none;"><pre><a class="snippet-copy sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">copy</a><a class="snippet-text sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">text</a><a class="snippet-window sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">pop-up</a></pre><div class="snippet-clipboard" style="position: absolute; left: 1px; top: 2px; width: 39px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_7" src="https://www.jayconsystems.com/skin/frontend/smartwave/mango/blog/js/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="39" height="15" name="ZeroClipboardMovie_7" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=7&amp;width=39&amp;height=15" wmode="transparent"></div></div><pre class="brush: cpp codesnip sh_cpp snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT<span class="sh_symbol">+</span>CIPSERVER<span class="sh_symbol">=</span><span class="sh_number">1</span><span class="sh_symbol">,</span><span class="sh_number">80</span></span></li><li><span style="display:none;">&nbsp;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;"><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT+CIPSERVER=1,80
+</span></pre><div class="codeFoot">&nbsp;</div></div></div>
+<p><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">The first number is used to indicate whether we want to close server mode (0), or open server mode (1). The second number indicates the port that the client uses to connect to a server. We chose port 80 because this is the default port for HTTP protocol.</span></p>
+<p><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">Now, when we open a web browser and type the IP address of our ESP module we get the following response: </span>&nbsp;</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/browserscreenshot1.png"></p>
+<p><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">This is the HTTP request that our computer sends to the server to fetch a file. It contains some interesting information such as what file you want to retrieve, name of the browser and version, what operating system you are using, what language you prefer to receive the file in, and more.&nbsp; &nbsp;&nbsp;&nbsp;</span></p>
+<p><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">We can now use the following commands to send some data and display it in our web browser’s window:</span></p>
+<div class="snippet-container" style="undefined;"><div class="sh_bright snippet-wrap"><div class="codeHead">&nbsp;</div><div class="snippet-menu sh_sourceCode" style="display: none;"><pre><a class="snippet-copy sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">copy</a><a class="snippet-text sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">text</a><a class="snippet-window sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">pop-up</a></pre><div class="snippet-clipboard" style="position: absolute; left: 1px; top: 2px; width: 39px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_8" src="https://www.jayconsystems.com/skin/frontend/smartwave/mango/blog/js/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="39" height="15" name="ZeroClipboardMovie_8" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=8&amp;width=39&amp;height=15" wmode="transparent"></div></div><pre class="brush: cpp codesnip sh_cpp snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT<span class="sh_symbol">+</span>CIPSEND<span class="sh_symbol">=</span><span class="sh_number">0</span><span class="sh_symbol">,</span><span class="sh_number">5</span></span></li><li><span style="display:none;">&nbsp;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;"><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT+CIPSEND=0,5
+</span></pre><div class="codeFoot">&nbsp;</div></div></div>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">The “0” indicates the channel through which the data is going to be transferred; while “5” represents the number of characters that are going to be sent. When we hit enter, the symbol “&gt;” appears. This indicates that we can now type the characters that we want to send to the browser. In this example we chose “hello.” After a couple of seconds we get the response "SEND OK." This means that the data has been transmitted successfully to the client. However, nothing appears on the web browser’s window yet. This is because it is required to close the channel first in order to display the characters. We use the following command to close the channel:</span></p>
+<div class="snippet-container" style="undefined;"><div class="sh_bright snippet-wrap"><div class="codeHead">&nbsp;</div><div class="snippet-menu sh_sourceCode" style="display: none;"><pre><a class="snippet-copy sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">copy</a><a class="snippet-text sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">text</a><a class="snippet-window sh_url" href="https://www.jayconsystems.com/tutorials/esp01#">pop-up</a></pre><div class="snippet-clipboard" style="position: absolute; left: 1px; top: 2px; width: 39px; height: 15px; z-index: 99;"><embed id="ZeroClipboardMovie_9" src="https://www.jayconsystems.com/skin/frontend/smartwave/mango/blog/js/ZeroClipboard.swf" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="39" height="15" name="ZeroClipboardMovie_9" align="middle" allowscriptaccess="always" allowfullscreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="id=9&amp;width=39&amp;height=15" wmode="transparent"></div></div><pre class="brush: cpp codesnip sh_cpp snippet-formatted sh_sourceCode"><ul class="snippet-no-num"><li><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT<span class="sh_symbol">+</span>CIPCLOSE<span class="sh_symbol">=</span><span class="sh_number">0</span></span></li><li><span style="display:none;">&nbsp;</span></li></ul></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;"><span style="font-size: small; font-family: arial, helvetica, sans-serif;">AT+CIPCLOSE=0
+</span></pre><div class="codeFoot">&nbsp;</div></div></div>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">“0” indicates the channel that is being closed. Once we hit enter, our message is displayed on the web browser’s window:</span></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/IPaddressmessage.png"></p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">You can refer to the following site to see the ESP8266 AT Command Set:</span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small;"><a href="http://www.pridopia.co.uk/pi-doc/ESP8266ATCommandsSet.pdf" target="_blank">http://www.pridopia.co.uk/pi-doc/ESP8266ATCommandsSet.pdf</a></span></p>
+<p><span style="font-family: arial, helvetica, sans-serif; font-size: small;"><span style="color: #000000;">Now we want to check that our ESP-01 module receives data. We will use the Android application “Mobile Telnet” to test this. If you want, you can download PuTTY</span> <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">here</a> </span><span style="font-size: small; font-family: arial, helvetica, sans-serif; color: #000000;">and use that instead.</span></p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">Open the Android application and from the menu select “Telnet Settings.”</span></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/telnet1.png"></p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">&nbsp;Type in the IP address and the port number.</span></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/telnet2.png"></p>
+<p><span style="font-size: small; font-family: arial, helvetica, sans-serif; color: #000000;">Click “OK” and from the menu select “Connect.”</span></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/telnet3.png"></p>
+<p><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">Type the characters that you want to send and then click the “Send” button.</span></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/telnet4.png"></p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">We get the following response on the serial monitor:</span></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/telnet5.png"></p>
+<p><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">The message is successfully received and displayed.&nbsp;</span></p>
+<p><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">If you decide to use PuTTY follow these steps:</span></p>
+<p><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">1. Open the program &nbsp;</span><br><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">2. Select “Telnet” as the connection type</span><br><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">3. Type the IP address and the port number</span><br><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">4. Click on “Open”</span></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/PuTTY.png"></p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">5. Type the characters that you want to send and hit “Enter.”</span></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/PuTTY2.png"></p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">We get the same response as before:</span></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/PuTTY3.png"></p>
+<p><span style="font-size: medium; color: #000000; font-family: arial, helvetica, sans-serif;"><b>Miscellaneous </b></span></p>
+<p><span style="font-size: small; color: #000000; font-family: arial, helvetica, sans-serif;">If you want to use a different firmware such as NodeMCU, you need to download an ESP8266 flasher such as <a href="https://drive.google.com/a/my.fit.edu/file/d/0B3dUKfqzZnlwVGc1YnFyUjgxelE/view" target="_blank"><span style="color: #000000;">this one</span></a>. Then you need to download the binary file. You can use the following site to do it. Make sure you download just the integer type.&nbsp;</span></p>
+<p><a href="https://github.com/nodemcu/nodemcu-firmware/releases" target="_blank">https://github.com/nodemcu/nodemcu-firmware/releases</a>&nbsp; &nbsp;</p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">Open the ESP8266 flasher and select the bin that you just downloaded. Select the serial port and type 0x40000080. Before you click on “Download,” make sure you ground GPIO0. This is required every time a new firmware is being flashed.</span></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/flasher1.png"></p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">When you click on “Download” the flasher will delete the current firmware and start installing the new one.</span></p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" alt="" src="./Getting started with the ESP8266 ESP-01_files/flasher2.png"></p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">Once the firmware has been installed, you can disconnect GPIO0 and use it normal.</span></p>
+<p><span style="color: #000000; font-size: small; font-family: arial, helvetica, sans-serif;">If you have any questions about this tutorial, do not hesitate to post a comment, shoot us an email, or post it in our forum.</span></p></div>
+        <div class="tags"><h4>Tag: </h4>            <a href="https://www.jayconsystems.com/tutorials/tag/ESP8266+ESP-01/">ESP8266 ESP-01</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+ESP8266/"> ESP8266</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+ESP-01/"> ESP-01</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+Wireless/"> Wireless</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+Wi-Fi+Network/"> Wi-Fi Network</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+microcontroller/"> microcontroller</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+Arduino+Uno/"> Arduino Uno</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+UNO/"> UNO</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+Arduino/"> Arduino</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+set-up+ESP-01/"> set-up ESP-01</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+Wi-Fi/"> Wi-Fi</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+Wi-Fi+module/"> Wi-Fi module</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+Flashing+Firmware/"> Flashing Firmware</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+Arduino+IDE/"> Arduino IDE</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/++AT+Commands/">  AT Commands</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+Access+Point/"> Access Point</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+Station/"> Station</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+PuTTY/"> PuTTY</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/+Mobile+Telnet/"> Mobile Telnet</a><span>,</span>                    <a href="https://www.jayconsystems.com/tutorials/tag/"></a>            	
+
+
+</div>    
+</div>
+
+<!-- Comment Section -->
+
+    
+<div class="postComments">
+    <div class="commentTitle"><a name="commentBox"></a>
+        <h2>Comments Posted(2)</h2>
+    </div>
+
+    
+            <div class="commentWrapper">
+            <div class="commentAvartar">
+                <img src="./Getting started with the ESP8266 ESP-01_files/blank_avatar.jpg" alr="Nevin Shelley">
+            </div>
+            <div class="commentContentWrapper">
+                  <div class="commentDetails"><h4 class="username">Nevin Shelley</h4> (Posted Jul 4, 2017 9:17:47 AM)</div>
+                  <div class="commentContent">Hi, thank you for the tutorial, the AT commands were very helpful. <br>
+I am now trying to sent sensor data to a cloud service provider. Please can you let me know if there is a follow-on tutorial in order to achieve this. Arduino uno r3 + esp01 + DS20BH sensor + SENS0305 PH sensor to cloud provider?<br>
+thanks again for a great tutorial.</div>
+            </div>            
+        </div>       
+            <div class="commentWrapper">
+            <div class="commentAvartar">
+                <img src="./Getting started with the ESP8266 ESP-01_files/blank_avatar.jpg" alr="Pedro Ayala">
+            </div>
+            <div class="commentContentWrapper">
+                  <div class="commentDetails"><h4 class="username">Pedro Ayala</h4> (Posted Aug 14, 2016 5:45:52 AM)</div>
+                  <div class="commentContent">There are some differences between esp-01 modules. Mine required an additional connection of GIPO 0 of the ESP-01 to ground in Arduino. Also in the serial monitor the baud rate had to be set to 115200 and select the "Both NL &amp; CR". Without these little modification it did not work. After that the whole tutorial worked quite well. If your node connection does not work try to find the one that fit your node in the internet. After that you can come back to this tutorial and follow it because it is a very good tutorial, a very good one.</div>
+            </div>            
+        </div>       
+        
+    </div>    
+<div class="commentBox">
+                                        <p>You must be logged in to post a comment.</p>
+                <p><a href="https://www.jayconsystems.com/customer/account/login/referer/aHR0cHM6Ly93d3cuamF5Y29uc3lzdGVtcy5jb20vYmxvZy9wb3N0L3ZpZXcvaWRlbnRpZmllci9lc3AwMS8,/">click here</a> to log in</p>
+            
+            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-container">
+    <div class="footer">
+            <div class="footer-bottom">
+            <div class="container">
+            <div class="footer-bottom-area">
+<div class="row">
+<div class="col-md-8 col-md-push-4">
+<ul class="footer-menu">
+<li><a href="https://www.jayconsystems.com/about/">About</a></li>
+<li><a href="https://www.jayconsystems.com/store/">Store</a></li>
+<li><a href="https://www.jayconsystems.com/services.html/">Services</a></li>
+<li><a href="https://www.jayconsystems.com/tutorials/">Blog/Tutorials</a></li>
+</ul>
+<div class="footer-contact for-mobile"><strong>Contact Us</strong> <br> (888) 226-4711 <br> <i>Jaycon Systems, LLC</i> <br> <i>801 E Hibiscus Blvd</i> <br> <i>Unit B</i> <br> <i>Melbourne, FL</i> <br> <i>32901</i></div>
+<div class="clear"><!-- . --></div>
+<p class="copyright for-desktop">Jaycon Systems, LLC | (888) 226-4711 | 801 E Hibiscus Blvd, Unit B Melbourne, FL 32901</p>
+</div>
+<div class="col-md-4 col-md-pull-8">
+<div class="payment-container"><a href="https://www.jayconsystems.com/"><img alt="" width="253" src="./Getting started with the ESP8266 ESP-01_files/Jaycon-Systems-Logo.svg"></a></div>
+</div>
+</div>
+</div>            </div>
+        </div>
+        </div>
+</div>
+<a href="https://www.jayconsystems.com/tutorials/esp01#" id="totop"><i class="icon-mango-angle-up"></i></a>
+<script type="text/javascript">
+    var windowScroll_t;
+    jQuery(window).scroll(function(){
+        clearTimeout(windowScroll_t);
+        windowScroll_t = setTimeout(function(){
+            if(jQuery(this).scrollTop() > 100){
+                jQuery('#totop').fadeIn();
+            }else{
+                jQuery('#totop').fadeOut();
+            }
+        }, 500);
+    });
+    jQuery('#totop').click(function(){
+        jQuery('html, body').animate({scrollTop: 0}, 600);
+        return false;
+    });
+</script>                                
+
+<style type="text/css">
+.snippet-wrap pre.sh_sourceCode { box-shadow:none }
+.codeHead{
+    clear: both;
+    text-align: right;
+    color: #888;
+    padding: 5px 5px 5px 15px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-topleft: 5px;
+    margin-top: 10px;
+    border: solid 1px #ccc;
+    border-bottom: none;
+    height: 20px;
+    line-height: 20px;
+    background: #eee;
+}
+.codeFoot{
+    text-align: right;
+    color: #888;
+    padding: 5px 5px 5px 15px;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomright: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    margin-bottom: 10px;
+    border: solid 1px #ccc;
+    border-top: none;
+    height: 20px;
+    line-height: 20px;
+    background: #eee;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.codesnip{
+    background: white !important;
+    border: solid 1px #ccc !important;
+    padding: 5px !important;
+    margin: 0 !important;
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,.2) inset !important;
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,.2) inset !important;
+    box-shadow: 0 0 5px rgba(0,0,0,.2) inset !important;
+    overflow: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    max-height: 300px !important;
+    border-radius: 0 !important;
+}
+a.sh_url { text-decoration: none; font-size:14px }
+a.sh_url.snippet-text { display:none }
+.snippet-wrap .snippet-menu, .snippet-wrap .snippet-hide { top:4px !important }
+</style>
+<script type="text/javascript">
+jQuery(document).ready( function() {
+    jQuery("pre.cpp").addClass('codesnip');
+    jQuery("pre.cpp").snippet("cpp",{'style':'bright','clipboard':"https://www.jayconsystems.com/skin/frontend/smartwave/mango/blog/js/ZeroClipboard.swf",'showNum':false});
+    jQuery('.snippet-wrap').append('<div class="codeFoot">&nbsp;</div>');
+    jQuery('.snippet-wrap').prepend('<div class="codeHead">&nbsp;</div>');
+});
+</script>            </div>
+        </div>
+        <script type="text/javascript"> _linkedin_data_partner_id = "211002"; </script><script type="text/javascript"> (function(){var s = document.getElementsByTagName("script")[0]; var b = document.createElement("script"); b.type = "text/javascript";b.async = true; b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b, s);})(); </script> <noscript> <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=211002&fmt=gif" /> </noscript>    
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div></body></html>
